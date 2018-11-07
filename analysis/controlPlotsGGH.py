@@ -349,6 +349,7 @@ def main(options,args,outputExists):
         puOpt  = "2016"       
 
     color = {'ggHbb': ROOT.kAzure+1,
+             'ggHcc': ROOT.kGreen,
              'Hbb': ROOT.kRed,
              'VHbb': ROOT.kTeal+1,
              'VBFHbb': ROOT.kBlue-10,
@@ -376,6 +377,7 @@ def main(options,args,outputExists):
 
     style = {'Hbb': 1,
              'ggHbb': 2,             
+             'ggHcc': 2,             
 		     'Phibb50': 2,
              'Phibb75': 3,
 		     'Phibb150': 4,
@@ -423,7 +425,7 @@ def main(options,args,outputExists):
             except:
                 pass
     if not outputExists: 
-        samples = ['ggHbb','VBFHbb','VHbb','ttHbb','QCD','SingleTop','Diboson','TTbar']                      
+        samples = ['ggHbb', 'ggHcc', 'VBFHbb','VHbb','ttHbb','QCD','SingleTop','Diboson','TTbar']                      
         #samples = ['ggHbb','VBFHbb','VHbb','ttHbb','QCD','SingleTop','Diboson','W','DY','TTbar']                      
         pudir="root://cmseos.fnal.gov//eos/uscms/store/user/lpcbacon/dazsle/zprimebits-v12.08-Pu/hadd/"
         for s in samples:
@@ -435,6 +437,7 @@ def main(options,args,outputExists):
         print "Signals... "
         sigSamples = {}
         if  options.is2017:
+            sigSamples['ggHcc']           = normSampleContainer('ggHcc',tfiles['ggHcc']  , 1, DBTMIN,lumi,False,False,'1',False, iSplit = options.iSplit, maxSplit = options.maxSplit,treeName='Events',puOpt='default').addPlots(plots) 
             sigSamples['ggHbb']           = normSampleContainer('ggHbb',tfiles['ggHbb']  , 1, DBTMIN,lumi,False,False,'1',False, iSplit = options.iSplit, maxSplit = options.maxSplit,treeName='Events',puOpt='default').addPlots(plots) 
             sigSamples['ggHbb_amc']       = normSampleContainer('ggHbb_amc',tfiles['ggHbb_amc']  , 1, DBTMIN,lumi,False,False,'1',False, iSplit = options.iSplit, maxSplit = options.maxSplit,treeName='Events',puOpt='default').addPlots(plots)
             sigSamples['ggHbb_amcHpT250'] = normSampleContainer('ggHbb_amcHpT250',tfiles['ggHbb_amcHpT250'], 1, DBTMIN,lumi,False,False,'1',False, iSplit = options.iSplit, maxSplit = options.maxSplit,treeName='Events',puOpt="default").addPlots(plots)
@@ -522,6 +525,7 @@ def main(options,args,outputExists):
                 hall_byproc['Wlnu'] = bkgSamples['Wlnu']
                 del bkgSamples['Wlnu']    #Do not get the plots from sampleContainer by getattr
             hall_byproc['ggHbb'] = sigSamples['ggHbb']
+            hall_byproc['ggHcc'] = sigSamples['ggHcc']
             hall_byproc['ggHbb_amc'] = sigSamples['ggHbb_amc']
             hall_byproc['ggHbb_amcHpT250'] = sigSamples['ggHbb_amcHpT250']
             #hall_byproc['DY_1208']= zqqplots  
@@ -566,7 +570,7 @@ def main(options,args,outputExists):
     
         ofile.Close()
     else:        
-        sigSamples = ['ggHbb','VBFHbb','VHbb','ttHbb']        
+        sigSamples = ['ggHbb','VBFHbb','VHbb','ttHbb', 'ggHcc']        
         bkgSamples = ['QCD','SingleTop','Diboson','W','DY']                      
         if isData and muonCR:
 #            bkgSamples.extend(['Wlnu','DYll','TTbar1Mu','TTbar1Ele','TTbar1Tau','TTbar0Lep','TTbar2Lep'])
