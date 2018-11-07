@@ -310,6 +310,7 @@ def main(options,args,outputExists):
     is2017 = options.is2017
     
     legname = {'ggHbb': 'ggH(b#bar{b})',
+    		'ggHcc': 'ggH(c#bar{c})',
                'Hbb': 'H(b#bar{b})',
                'VBFHbb':'VBF H(b#bar{b})',
                'VHbb': 'VH(b#bar{b})',
