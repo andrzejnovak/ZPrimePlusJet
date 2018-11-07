@@ -79,7 +79,7 @@ def get2016files():
         'Phibb75': [idir + '/Spin0_ggPhi12j_g1_75_Scalar_13TeV_madgraph_1000pb_weighted.root'],
         'Phibb150': [idir + '/Spin0_ggPhi12j_g1_150_Scalar_13TeV_madgraph_1000pb_weighted.root'],
         'Phibb250': [idir + '/Spin0_ggPhi12j_g1_250_Scalar_13TeV_madgraph_1000pb_weighted.root'],
-        'data_obs': [idirData+'JetHTRun2016B_03Feb2017_ver2_v2_v3.root',
+        'data': [idirData+'JetHTRun2016B_03Feb2017_ver2_v2_v3.root',
                      idirData + 'JetHTRun2016B_03Feb2017_ver1_v1_v3.root',
                      idirData + 'JetHTRun2016C_03Feb2017_v1_v3_0.root',
                      idirData + 'JetHTRun2016C_03Feb2017_v1_v3_1.root',
@@ -340,9 +340,9 @@ def main(options,args,outputExists):
         legname['data'] = 'SingleMuon data'
 
     if is2017:
-        #tfiles = get2017files()
-        samplefiles   = open(os.path.expandvars("$ZPRIMEPLUSJET_BASE/analysis/ggH/samplefiles.json"),"r")
-        tfiles  = json.load(samplefiles)['controlPlotsGGH_2017']
+        tfiles = get2017files()
+        #samplefiles   = open(os.path.expandvars("$ZPRIMEPLUSJET_BASE/analysis/ggH/samplefiles.json"),"r")
+        #tfiles  = json.load(samplefiles)['controlPlotsGGH_2017']
         puOpt  = "2017"
     else:
         tfiles = get2016files()
