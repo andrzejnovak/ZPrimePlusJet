@@ -534,6 +534,7 @@ def main(options,args,outputExists):
             del bkgSamples['DY']   #Do not get the plots from sampleContainer by getattr
             del bkgSamples['W']    #Do not get the plots from sampleContainer by getattr
             del sigSamples['ggHbb']    #Do not get the plots from sampleContainer by getattr
+            del sigSamples['ggHcc']    #Do not get the plots from sampleContainer by getattr
             del sigSamples['ggHbb_amc']    #Do not get the plots from sampleContainer by getattr
             del sigSamples['ggHbb_amcHpT250']    #Do not get the plots from sampleContainer by getattr
         for plot in plots:
@@ -595,7 +596,6 @@ def main(options,args,outputExists):
                 hd = ofile.Get(plot.replace('h_','h_muon_'))
             elif isData:
                 hd = ofile.Get(plot.replace('h_','h_data_'))
-            print plot
             makePlots(plot,hs,hb,hd,hall,legname,color,style,isData,odir,lumi,ofile,canvases)
         
 
