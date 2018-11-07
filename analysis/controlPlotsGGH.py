@@ -340,9 +340,9 @@ def main(options,args,outputExists):
         legname['data'] = 'SingleMuon data'
 
     if is2017:
-        tfiles = get2017files()
-        #samplefiles   = open(os.path.expandvars("$ZPRIMEPLUSJET_BASE/analysis/ggH/samplefiles.json"),"r")
-        #tfiles  = json.load(samplefiles)['controlPlotsGGH_2017']
+        #tfiles = get2017files()
+        samplefiles   = open(os.path.expandvars("$ZPRIMEPLUSJET_BASE/analysis/ggH/samplefiles.json"),"r")
+        tfiles  = json.load(samplefiles)['controlPlotsGGH_2017']
         puOpt  = "2017"
     else:
         tfiles = get2016files()
@@ -435,6 +435,7 @@ def main(options,args,outputExists):
                     print 'ControlplotGGH:: error: %s does not exist'%tfile                 
                     sys.exit()
         print "Signals... "
+	print tfiles
         sigSamples = {}
         if  options.is2017:
             sigSamples['ggHcc']           = normSampleContainer('ggHcc',tfiles['ggHcc']  , 1, DBTMIN,lumi,False,False,'1',False, iSplit = options.iSplit, maxSplit = options.maxSplit,treeName='Events',puOpt='default').addPlots(plots) 
