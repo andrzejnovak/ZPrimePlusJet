@@ -1046,8 +1046,8 @@ def makeCanvasComparisonStackWData(hd,hs,hb,legname,color,style,outname,pdir="pl
     	print ksScore
     	print chiScore
     	ratio.SetStats(0)
-        rymin = min(0.9, ratio.GetMinimum()/1.05)
-        rymax = max(1.1, ratio.GetMaximum()*1.05)
+        rymin = min(0.85, ratio.GetMinimum()/1.05)
+        rymax = max(1.15, ratio.GetMaximum()*1.05)
         ratio.GetYaxis().SetRangeUser(rymin,rymax)	
         ratio.GetYaxis().SetNdivisions(504)
     	ratio.GetYaxis().SetTitle("Data/Simulation")
@@ -1098,6 +1098,8 @@ def makeCanvasComparisonStackWData(hd,hs,hb,legname,color,style,outname,pdir="pl
     c.SaveAs(pdir+"/"+outname+".root")
     oben.SetLogy()
 
+    hstack2.SetMaximum(10*maxval)
+    hstack2.GetYaxis().SetRangeUser(1.,10*maxval)
 
     c.SaveAs(pdir+"/"+outname+"_log.pdf")
     c.SaveAs(pdir+"/"+outname+"_log.root")
