@@ -970,9 +970,9 @@ def makeCanvasComparisonStackWData(hd,hs,hb,legname,color,style,outname,pdir="pl
     oben.cd()
  
     hstack2.Draw('hist')
-    hstack2.SetMaximum(10*maxval)
+    hstack2.SetMaximum(1.1*maxval)
     hstack2.SetMinimum(1.)
-    hstack2.GetYaxis().SetRangeUser(1.,10*maxval)
+    hstack2.GetYaxis().SetRangeUser(1.,1.1*maxval)
     hstack2.GetYaxis().SetTitle('Events')
     hstack2.GetYaxis().SetTitleOffset(1.0)	
     hstack2.GetXaxis().SetTitle(allMC.GetXaxis().GetTitle())
