@@ -1046,7 +1046,9 @@ def makeCanvasComparisonStackWData(hd,hs,hb,legname,color,style,outname,pdir="pl
     	print ksScore
     	print chiScore
     	ratio.SetStats(0)
-        ratio.GetYaxis().SetRangeUser(0,5)	
+        rymin = min(0.9, ratio.GetMinimum())
+        rymax = max(1.1, ratio.GetMaximum())
+        ratio.GetYaxis().SetRangeUser(rymin,rymax)	
         ratio.GetYaxis().SetNdivisions(504)
     	ratio.GetYaxis().SetTitle("Data/Simulation")
     	ratio.GetXaxis().SetTitle(allMC.GetXaxis().GetTitle())    
