@@ -336,7 +336,7 @@ def main(options, args):
 
     print "Signals... "
     sigSamples = {}
-    sigSamples['ggHcc'] = normSampleContainer('ggHcc', tfiles['ggHcc'], 1, dbtagmin, lumi, False, False, '1', True, iSplit = options.iSplit, maxSplit = options.maxSplit,doublebCut=dbtagcut,  treeName='Events',  puOpt='h_puMC').addPlots(plots)
+    #sigSamples['ggHcc'] = normSampleContainer('ggHcc', tfiles['ggHcc'], 1, dbtagmin, lumi, False, False, '1', True, iSplit = options.iSplit, maxSplit = options.maxSplit,doublebCut=dbtagcut,  treeName='Events',  puOpt='h_puMC').addPlots(plots)
     sigSamples['hqq125'] = sampleContainer('hqq125', tfiles['hqq125'], 1, dbtagmin, lumi, False, False, '1', True, iSplit = options.iSplit, maxSplit = options.maxSplit,doublebCut=dbtagcut,puOpt=puOpt)
     sigSamples['tthqq125'] = sampleContainer('tthqq125', tfiles['tthqq125'], 1, dbtagmin, lumi, False, False, '1', True, iSplit = options.iSplit, maxSplit = options.maxSplit,doublebCut=dbtagcut,puOpt=puOpt)
     sigSamples['vbfhqq125'] = sampleContainer('vbfhqq125', tfiles['vbfhqq125'], 1, dbtagmin, lumi, False, False, '1',True, iSplit = options.iSplit, maxSplit = options.maxSplit,doublebCut=dbtagcut,puOpt=puOpt)
@@ -386,7 +386,8 @@ def main(options, args):
 
     hall = {}
 
-    normSamples =['wqq','zqq','wlnu','ggHcc']
+    #normSamples =['wqq','zqq','wlnu','ggHcc']
+    normSamples =['wqq','zqq','wlnu']
     for plot in plots:
         tag = plot.split('_')[-1]  # 'pass' or 'fail' or systematicName
         if tag not in ['pass', 'fail']:
