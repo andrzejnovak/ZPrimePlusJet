@@ -8,12 +8,13 @@ python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/
 # create templates for muon CR
 python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/muonCR   --is2017 --lumi 36.7 -m 
 # create looser templates, with passing region double b-tag > 0.8 
-python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/looserWZ --is2017 --lumi 36.7 --skip-qcd --skip-data -d 0.8 
+python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/looserWZ --is2017 --lumi 36.7 --skip-qcd --skip-data --dbtagcut 0.8 
 
 #Hadd and clean 
-python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/data     --hadd --clean
+# python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/data     --hadd --clean
+python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/p10_data     --hadd --clean
 python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/muonCR   --hadd --clean -m
-python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/looserWZ --hadd --clean --skip-qcd --skip-data -d 0.8
+python submitJob_Hbb_create.py -o output-miniaod-pfmet140-hptckkw-hqq125ptShape/looserWZ --hadd --clean --skip-qcd --skip-data --dbtagcut 0.8
 ```
 
 Make workspaces and datacards:
