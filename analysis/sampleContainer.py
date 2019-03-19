@@ -1415,7 +1415,7 @@ class sampleContainer:
                     self.h_pt_ak8_sub2.Fill(jpt_8_sub2, weight)
                     self.h_msd_ak8.Fill(jmsd_8, weight)
                     self.h_msd_ak8_raw.Fill(jmsd_8_raw, weight)
-                    self.h_dbtag_ak8.Fill(jdb_8, weight)
+                    self.h_dbtag_ak8.Fill(self.AK8Puppijet0_doublecsv[0], weight)
                     self.h_DDBvLtag_ak8.Fill(jDDBvL_8, weight)
                     self.h_DDCvLtag_ak8.Fill(jDDCvL_8, weight)
                     self.h_DDCvBtag_ak8.Fill(jDDCvB_8, weight)
@@ -1545,7 +1545,7 @@ class sampleContainer:
                 cut[8] = cut[8] + 1
                 if  rh_8<-2.1 and rh_8>-6.:
 		    cut[7] = cut[7] + 1
-		    if (not self._minBranches): self.h_dbtag_ak8_aftercut.Fill(jdb_8,weight)
+		    if (not self._minBranches): self.h_dbtag_ak8_aftercut.Fill(self.AK8Puppijet0_doublecsv[0],weight)
                 self.h_msd_ak8_topR6_N2_incl.Fill(jmsd_8, weight)
                 if jdb_8 > self.DBTAGCUT:
                     cut[9] = cut[9] + 1
